@@ -28,3 +28,4 @@ for(i in exdivpos){
 result <- result/counter
 plot(result, x=1:41, type="l", xlab="Time", ylab="Return")
 points(result,pch=20)
+abline(v=21, col="red", lwd=5)
