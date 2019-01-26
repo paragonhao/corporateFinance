@@ -26,6 +26,7 @@ for(i in exdivpos){
   }
 }
 result <- result/counter
-plot(result, x=1:41, type="l", xlab="Time", ylab="Return")
+plot(result, x=1:41, type="l", xlab="Time", ylab="Return", main="Excess Return from -20 to +20 around Ex-Div Date")
 points(result,pch=20)
-abline(v=21, col="red", lwd=5)
+abline(v=21, col="red", lwd=5, lty=2)
+text(x=21,y=-0.005,"Ex-Div Date")
