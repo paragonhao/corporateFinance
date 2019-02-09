@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
   <head>
-    <title>hw3.html</title>
+    <title>hw4.html</title>
   </head>
 
   <meta name="KEYWORDS" content="..." />
@@ -19,55 +19,88 @@
 
   <body>
 
-    <h1> Homework 3, by Wang xiahao, Feb 2nd, 2019 </h1>
+    <h1> Homework 4, by Wang xiahao, Feb 8th, 2019 </h1>
 
     <h2> Executive Summary </h2>
 
-    <p> The purpose of the assignment is to create an annual data set of compounded rates of return for each stock. Data from 2010 to 2018 for all the stocks on CRSP database is used. Annual Compounded return is calcuated for each stock in the database. 
+    <p> The purpose of the assignment is to create an annual data set of earnings, cash flows, and leverage ratios (FD/TA, market and book-based), as available to investors for sure in December of the year. Analysis has been done to evaluate the distribution of the leverage ratio based on book value and market value accordingly. Cross-section comparision has also been done to evaluate the average ratio and total earning among different industries. Data is extracted from 2000 Jan to 2018 Dec for the entire compustat database.
     </p>
 <b>NOTE: Internet connection is required to view the full page with diagram and css template</b>
      <h2> Summary of the result</h2>
 
-    <p> <h3>The diagram shows histogram of the annual return for all the stocks from 2010 to 2018 </h3>
-      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW3/Compounded_Return.png" alt="result"></p>
+    <p> <h3>The diagram shows histogram of the distribution of leverage ratios from 2010 to 2018 for book and market value </h3>
+      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageRatioDistBV.png" alt="result"></p>
+      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageRatioDistMV.png" alt="result"></p>
 
-    <p>There are some data with extreme values. E.g. the return is over 1000000% for a stock in a particular year. 
-      Hence, 99.5% percentile is taken to evaluate the overall distribution of the return.
-      The data is positively skewed and has a high kurtosis as compared to normal distribution.
-    </p>  
+    <p>As observed from the diagram, most of the leverage ratio is close or equal to zero. This is because the current debt and long term debt are close to 0 in the data. Also it is easy to see that more leverage ratio based on market value are clustered between 0 to 0.5 than that based on book value. Based on the formula below, one educated guess could be that the market value is in general more than book value for the stocks on the market.
+    </p>
+    <div>The forumla for the leverage ratio:</div>
+    <div>
+      Market Leverage Ratio = (Current Debt + Long term debt)/Total Assets</div>
+      <div>
+      Book Leverage Ratio = (Current Debt + Long term Debt)/(Current Debt + Long term debt + Common Equity)
+    </div>  
 
+    <p><h3>The diagram below shows the leverage ratio (book value) by industry</h3> Industry codes can be found <a href="https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard">here</a></p>
+    <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageByIndustry_bv.png" alt="result"></p>
+     <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageByIndudstry_mkt_v.png" alt="result"></p>
+    
+     <p>
+       Fun facts about these two diagrams. Industries with the highest leverage ratios are: Real Estate and and utilities industry. 
+       Information Technology sector is the least leveraged industry. 
+       <div>This result echoes with the information online:</div> 
+      <ul>
+       <li>Utilities often carry high debt levels as their infrastructure requirements make large, periodic capital expenditures necessary. </li>
+
+       <li>The real estate sector comprises different groups of companies that own, develop and operate properties, such as residential land, buildings, industrial property and offices. Since real estate companies usually buy out the entire property, such transactions require large upfront investments, which are quite often funded with a large quantity of debt.</li>
+       <li>Technology stocks are, in general, far less leveraged than the other stocks in the S&P 500. Some industry-leading companies have been hoarding cash. Consider that four information-age bellwethers―Apple (AAPL), Microsoft (MSFT), Google (GOOG) and Cisco (CSCO)―possess a combined $345 billion in cash. And the overall tech sector holds more than half of total corporate cash reserves in the U.S.
+       </li>
+     </ul>
 
        <table>
-        <caption> Annual Return of all the stocks in CRSP</caption>
         <thead> 
           <tr> 
-            <th> Mean </th> 
-            <th> Variance</th> 
-            <th> Kurtosis </th> 
-            <th> Skewness </th> 
+            <th> Sectors </th> 
+            <th> Leverage Ratio by market value</th> 
+            <th> Leverage Ratio by book value</th> 
           </tr> </thead>
         <tbody>
-          <tr> <td>0.08280621</td> <td>0.2006202</td> <td>7.547397</td> <td>1.233582</td></tr>
+          <tr> <td>10</td> <td>0.320</td><td>0.397</td><</tr>
+          <tr> <td>15</td> <td>0.263</td><td>0.366</td><</tr>
+          <tr> <td>20</td> <td>0.249</td><td>0.344</td><</tr>
+          <tr> <td>25</td> <td>0.263</td><td>0.339</td><</tr>
+          <tr> <td>30</td> <td>0.276</td><td>0.380</td><</tr>
+          <tr> <td>35</td> <td>0.192</td><td>0.217</td><</tr>
+          <tr> <td>40</td> <td>0.181</td><td>0.441</td><</tr>
+          <tr> <td>45</td> <td>0.125</td><td>0.173</td><</tr>
+          <tr> <td>50</td> <td>0.341</td><td>0.425</td><</tr>
+          <tr> <td>55</td> <td>0.372</td><td>0.550</td><</tr>
+          <tr> <td>60</td> <td>0.421</td><td>0.494</td><</tr>
         </tbody>
       </table>
 
+    <p><h3>The diagram below shows the earnings by industry</h3></p>
+    <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/Earnings_by_industry.png" alt="result"></p>
+    <p>Industries such as real estates and utilities which are the most leveraged sectors, turn out to be the sector with the least earnings.
+    In the US market, Financial industry totally dominates the whole market in terms of earnings. </p>
 
     <h2> Implementation And Methdology</h2>
-    <p> <b>Detailed Implementation in R is available on my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW3/hw3.R">here</a> </b></p>
+    <p> <b>Detailed Implementation in R is available on my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW4/HW4.r">here</a> </b></p>
   
     <ul>
-      <li>Step 1: Download data from CRSP, Choose monthly data under Stocks/Security Files
-      </li>
-      <li>Step 2: Identify the companies based on PERMCO, which is the permanent identificaiton number that would not change in CRSP</li>
-      <li>Step 3: Collpased the monthly data into yearly data and calculate the annual geometric return.</li>
-      <li>Step 4: Plot the histogram to show the distribution of compounded annual return </li>
+      <li>Step 1: Download data from Compustat, Choose CRSP/Compustat Merged - Fundamentals Annual</li>
+      <li>Step 2: Choose variables Financing Activities Net Cash Flow, Investing Activities Net Cash Flow, Operating Activities Net Cash Flow,
+      Earnings Before Interest, Long-Term Debt - Total, Debt in Current Liabilities - Total, Assets - Total, Common/Ordinary Equity - Total, Ticker Symbol</li>
+      <li>Step 3: Calucate the leverage ratios by book and market value.</li>
+      <li>Step 4: Use dplyr to group the sectors and find the average leverage ratio and total earnings. </li>
     </ul>
 
     </br>
     <h2> References </h2>
 
     <ul>
-      <li> <a href="https://wrds-web.wharton.upenn.edu/wrds/">WRDS</a>, WRDS, retrieved on 2nd Feb, 2019. </li>
+      <li> <a href="https://wrds-web.wharton.upenn.edu/wrds/">WRDS</a>,WRDS, retrieved on 8th Feb, 2019. </li>
+      <li> <a href="https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard">Global Industry Classification Standard</a>, retrieved on 8th Feb, 2019. </li>
     </ul>
       
     <p class="notice">TAs, please do not judge me too harshly.</p>
