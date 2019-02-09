@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <title>hw3.html</title>
+  </head>
+
+  <meta name="KEYWORDS" content="..." />
+  <meta name="AUTHOR" content="Wang Xiahao" />
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="http://www.ivo-welch.info/teaching/hw.css" />
+  
+
+  <body>
+
+    <h1> Homework 3, by Wang xiahao, Feb 2nd, 2019 </h1>
+
+    <h2> Executive Summary </h2>
+
+    <p> The purpose of the assignment is to create an annual data set of compounded rates of return for each stock. Data from 2010 to 2018 for all the stocks on CRSP database is used. Annual Compounded return is calcuated for each stock in the database. 
+    </p>
+<b>NOTE: Internet connection is required to view the full page with diagram and css template</b>
+     <h2> Summary of the result</h2>
+
+    <p> <h3>The diagram shows histogram of the annual return for all the stocks from 2010 to 2018 </h3>
+      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW3/Compounded_Return.png" alt="result"></p>
+
+    <p>There are some data with extreme values. E.g. the return is over 1000000% for a stock in a particular year. 
+      Hence, 99.5% percentile is taken to evaluate the overall distribution of the return.
+      The data is positively skewed and has a high kurtosis as compared to normal distribution.
+    </p>  
+
+
+       <table>
+        <caption> Annual Return of all the stocks in CRSP</caption>
+        <thead> 
+          <tr> 
+            <th> Mean </th> 
+            <th> Variance</th> 
+            <th> Kurtosis </th> 
+            <th> Skewness </th> 
+          </tr> </thead>
+        <tbody>
+          <tr> <td>0.08280621</td> <td>0.2006202</td> <td>7.547397</td> <td>1.233582</td></tr>
+        </tbody>
+      </table>
+
+
+    <h2> Implementation And Methdology</h2>
+    <p> <b>Detailed Implementation in R is available on my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW3/hw3.R">here</a> </b></p>
+  
+    <ul>
+      <li>Step 1: Download data from CRSP, Choose monthly data under Stocks/Security Files
+      </li>
+      <li>Step 2: Identify the companies based on PERMCO, which is the permanent identificaiton number that would not change in CRSP</li>
+      <li>Step 3: Collpased the monthly data into yearly data and calculate the annual geometric return.</li>
+      <li>Step 4: Plot the histogram to show the distribution of compounded annual return </li>
+    </ul>
+
+    </br>
+    <h2> References </h2>
+
+    <ul>
+      <li> <a href="https://wrds-web.wharton.upenn.edu/wrds/">WRDS</a>, WRDS, retrieved on 2nd Feb, 2019. </li>
+    </ul>
+      
+    <p class="notice">TAs, please do not judge me too harshly.</p>
+
+  </body>
+
+</html>
