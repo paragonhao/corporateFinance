@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <title>hw5.html</title>
+  </head>
+
+  <meta name="KEYWORDS" content="..." />
+  <meta name="AUTHOR" content="Wang Xiahao" />
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="http://www.ivo-welch.info/teaching/hw.css" />
+  
+
+  <body>
+
+    <h1> Homework 5, by Wang xiahao, Feb 19th, 2019 </h1>
+
+    <h2> Executive Summary </h2>
+
+    <p> The purpose of the assignment is to compare my data from HW2 and HW3 with another student in class. I exchanged my data with Harry Yanxiang Zhao's and also discussed on our approach to solve the problems. The two datasets are not exactly the same as we chose different range and scope. 
+    </p>
+
+<b>NOTE: Internet connection is required to view the full page with diagram and css template</b>
+     <h2> Summary of the result</h2>
+     <h3>Homework 2</h3>
+      <p>
+    For homework 2, Harry has 566 stocks returns from 2010/01/04 to 2019/06/29 and 11918 entries in total while I have 452 stocks from 2011/01/03 to 2017/12/29 and 10926 entries in total. This is due to how we downloaded the dataset for S&P 500 differently. 
+    I looked up on wiki and identified the S&P 500 firms at this moment while Harry went extra miles to identify the S&P 500 firms at the end of each year. Hence the he has a bigger resulting dataset. However, by eyeballing the resulting datasets, the different is insignificant and we both were able to conclude that equity return will decrease sharply on the ex-div date. 
+    One quick solution for reconciliation is to merge the data and identify the entries that are common. Harry spearheaded on this effort and obtained the result in the following table. The conclusion does not change at all after the reconciliation.
+    </p> 
+
+     <table>
+        <thead> 
+          <tr> 
+            <th>  </th> 
+             <th> Mine </th> 
+            <th> Harry</th> 
+            <th> Reconciled</th> 
+          </tr> </thead>
+        <tbody>
+          <tr> <td>Mean</td> <td>-0.004458</td><td>-0.004829</td><td>-0.004556</td></tr>
+          <tr> <td>StdDev</td> <td>0.01909</td><td>0.01681</td><td>0.01644</td></tr>
+          <tr> <td>Total entries</td> <td>10926</td><td>11918</td><td>9401</td></tr>
+          <tr> <td>Total number of stocks</td> <td>452</td><td>566</td><td>418</td></tr>
+          <tr> <td>Start Date</td> <td>1/3/2011</td><td>1/4/2011</td><td>1/3/2011</td></tr>
+          <tr> <td>End Date</td> <td>12/29/2017</td><td>6/29/2019</td><td>12/29/2017</td></tr>
+        </tbody>
+      </table>
+      <p><h3>The diagram below shows excess return from -20 to +20 days </h3></p>
+      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageRatioDistBV.png" alt="result"></p>
+
+    <p>As observed from the diagram, most of the leverage ratio is close or equal to zero. This is because the current debt and long term debt are close to 0 in the data. Also it is easy to see that more leverage ratio based on market value are clustered between 0 to 0.5 than that based on book value. Based on the formula below, one educated guess could be that the market value is in general more than book value for the stocks on the market.
+    </p>
+    <div>The forumla for the leverage ratio:</div>
+    <div>
+      Market Leverage Ratio = (Current Debt + Long term debt)/Total Assets</div>
+      <div>
+      Book Leverage Ratio = (Current Debt + Long term Debt)/(Current Debt + Long term debt + Common Equity)
+    </div>  
+
+    <p><h3>The diagram below shows the leverage ratio (book value) by industry</h3> Industry codes can be found <a href="https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard">here</a></p>
+    <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageByIndustry_bv.png" alt="result"></p>
+     <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageByIndudstry_mkt_v.png" alt="result"></p>
+    
+     <p>
+       Fun facts about these two diagrams. Industries with the highest leverage ratios are: Real Estate and and utilities industry. 
+       Information Technology sector is the least leveraged industry. 
+       <div>This result echoes with the information online:</div> 
+      <ul>
+       <li>Utilities often carry high debt levels as their infrastructure requirements make large, periodic capital expenditures necessary. </li>
+
+       <li>The real estate sector comprises different groups of companies that own, develop and operate properties, such as residential land, buildings, industrial property and offices. Since real estate companies usually buy out the entire property, such transactions require large upfront investments, which are quite often funded with a large quantity of debt.</li>
+       <li>Technology stocks are, in general, far less leveraged than the other stocks in the S&P 500. Some industry-leading companies have been hoarding cash. Consider that four information-age bellwethers―Apple (AAPL), Microsoft (MSFT), Google (GOOG) and Cisco (CSCO)―possess a combined $345 billion in cash. And the overall tech sector holds more than half of total corporate cash reserves in the U.S.
+       </li>
+     </ul>
+
+    <p><h3>The diagram below shows excess return from -20 to +20 days </h3></p>
+    <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/Earnings_by_industry.png" alt="result"></p>
+    <p>Industries such as real estates and utilities which are the most leveraged sectors, turn out to be the sector with the least earnings.
+    In the US market, Financial industry totally dominates the whole market in terms of earnings. </p>
+
+    <h2> Implementation And Methdology</h2>
+    <p> <b>Detailed Implementation in R is available on my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW4/HW4.r">here</a> </b></p>
+  
+    <ul>
+      <li>Step 1: Download data from Compustat, Choose CRSP/Compustat Merged - Fundamentals Annual</li>
+      <li>Step 2: Choose variables Financing Activities Net Cash Flow, Investing Activities Net Cash Flow, Operating Activities Net Cash Flow,
+      Earnings Before Interest, Long-Term Debt - Total, Debt in Current Liabilities - Total, Assets - Total, Common/Ordinary Equity - Total, Ticker Symbol</li>
+      <li>Step 3: Calucate the leverage ratios by book and market value.</li>
+      <li>Step 4: Use dplyr to group the sectors and find the average leverage ratio and total earnings. </li>
+    </ul>
+
+    </br>
+    <h2> References </h2>
+
+    <ul>
+      <li> <a href="https://wrds-web.wharton.upenn.edu/wrds/">WRDS</a>,WRDS, retrieved on 8th Feb, 2019. </li>
+      <li> <a href="https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard">Global Industry Classification Standard</a>, retrieved on 8th Feb, 2019. </li>
+    </ul>
+      
+    <p class="notice">TAs, please do not judge me too harshly.</p>
+
+  </body>
+
+</html>
