@@ -5,10 +5,10 @@ library(dplyr)
 complete_data <- data1_INDL[complete.cases(data1_INDL),]
 complete_data <- complete_data[complete_data$at!=0,]
 complete_data$lr_mkt <- (complete_data$dlc + complete_data$dltt)/complete_data$at
-complete_data$lr_book <- (complete_data$dlc + complete_data$dltt)/(complete_data$dlc + complete_data$dltt + abs(complete_data$ceq))
+complete_data$lr_book <- abs((complete_data$dlc + complete_data$dltt)/(complete_data$dlc + complete_data$dltt + complete_data$ceq))
 
-hist(complete_data$lr_mkt, xlim=c(0,2), breaks = 10000, main="Leverage Ratio Distribution (Market Value)")
-hist(complete_data$lr_book, xlim=c(0,5), breaks = 100, main="Leverage Ratio Distribution (Book Value)")
+hist(complete_data$lr_mkt, xlim=c(0,2), breaks = 1000, main="Leverage Ratio Distribution (Market Value)", xlab = "Leverage To Market Ratio")
+hist(complete_data$lr_book, xlim=c(0,2), breaks = 100000, main="Leverage Ratio Distribution (Book Value)",  xlab = "Leverage To Book Ratio")
 
 industry_mkt <- complete_data %>% 
   group_by(complete_data$gsector) %>% 

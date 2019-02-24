@@ -41,7 +41,7 @@
             <th>  </th> 
              <th> Mine </th> 
             <th> Harry</th> 
-            <th> Reconciled</th> 
+            <th> Reconciled Data</th> 
           </tr> </thead>
         <tbody>
           <tr> <td>Mean</td> <td>-0.004458</td><td>-0.004829</td><td>-0.004556</td></tr>
@@ -52,51 +52,41 @@
           <tr> <td>End Date</td> <td>12/29/2017</td><td>6/29/2019</td><td>12/29/2017</td></tr>
         </tbody>
       </table>
-      <p><h3>The diagram below shows excess return from -20 to +20 days </h3></p>
-      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageRatioDistBV.png" alt="result"></p>
-
-    <p>As observed from the diagram, most of the leverage ratio is close or equal to zero. This is because the current debt and long term debt are close to 0 in the data. Also it is easy to see that more leverage ratio based on market value are clustered between 0 to 0.5 than that based on book value. Based on the formula below, one educated guess could be that the market value is in general more than book value for the stocks on the market.
+      <p><h3>The diagram below shows excess return from -20 to +20 days</h3></p>
+      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW5/HW5-1.png" alt="result"></p>
+       <h3>Lesson learnt from Homework 2</h3>
+    <p>Harry's approach is more reasonable than mine as he collected all the S&P500 firms cummulatively over the years. Next time I shall try to include more data that are within the scope of the reasearch. As for the code, both of us used libraries such as lubridate and data.table for data cleansing and manipulaition. Also credits to Harry on this one as he was the first person to introduce me R libraries such as lubridate and data.table at the beginning of the program :).
     </p>
-    <div>The forumla for the leverage ratio:</div>
-    <div>
-      Market Leverage Ratio = (Current Debt + Long term debt)/Total Assets</div>
-      <div>
-      Book Leverage Ratio = (Current Debt + Long term Debt)/(Current Debt + Long term debt + Common Equity)
-    </div>  
+   
+     <h3>Homework 3</h3>
+     <p>Again, discrepencies have occured in terms dataset that we used for this homework. Harry used the entire dataset from 1926 to 2018. While I only used data from 2010 to 2018. Hence, Harry's dataset almost entirely covers my dataset. Same approach is used to merge and reconcile data by carving out data in common.  The end result in shown in the table below. </p>
 
-    <p><h3>The diagram below shows the leverage ratio (book value) by industry</h3> Industry codes can be found <a href="https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard">here</a></p>
-    <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageByIndustry_bv.png" alt="result"></p>
-     <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/LeverageByIndudstry_mkt_v.png" alt="result"></p>
-    
-     <p>
-       Fun facts about these two diagrams. Industries with the highest leverage ratios are: Real Estate and and utilities industry. 
-       Information Technology sector is the least leveraged industry. 
-       <div>This result echoes with the information online:</div> 
-      <ul>
-       <li>Utilities often carry high debt levels as their infrastructure requirements make large, periodic capital expenditures necessary. </li>
+      <table>
+        <thead> 
+          <tr> 
+            <th>  </th> 
+             <th> Mine </th> 
+            <th> Harry</th> 
+            <th> Reconciled Data</th> 
+          </tr> </thead>
+        <tbody>
+          <tr> <td>Mean</td> <td>0.1222061</td><td>0.153058</td><td>0.1282787</td></tr>
+          <tr> <td>StdDev</td> <td>0.55326</td><td>0.82266</td><td>0.55469</td></tr>
+          <tr> <td>Total entries</td> <td>73</td><td>1392</td><td>72</td></tr>
+          <tr> <td>Total number of stocks</td> <td>99</td><td>566</td><td>10</td></tr>
+          <tr> <td>Start Date</td> <td>2010</td><td>1926</td><td>2010</td></tr>
+          <tr> <td>End Date</td> <td>2018</td><td>2018</td><td>2018</td></tr>
+        </tbody>
+      </table>
+      <p>This reconciled result however, is not meaningful to showcase the return and volatility of the stock market. As I have only included data after 2010. The stock market has been on a steady growth after in financial crisis in 2008. This kind of explains why my volatility is much lower than that in Harry's dataset, which includes numerous financial crsises like great depression, black monday, dotcom bubble and 2008. </p>  
 
-       <li>The real estate sector comprises different groups of companies that own, develop and operate properties, such as residential land, buildings, industrial property and offices. Since real estate companies usually buy out the entire property, such transactions require large upfront investments, which are quite often funded with a large quantity of debt.</li>
-       <li>Technology stocks are, in general, far less leveraged than the other stocks in the S&P 500. Some industry-leading companies have been hoarding cash. Consider that four information-age bellwethers―Apple (AAPL), Microsoft (MSFT), Google (GOOG) and Cisco (CSCO)―possess a combined $345 billion in cash. And the overall tech sector holds more than half of total corporate cash reserves in the U.S.
-       </li>
-     </ul>
-
-    <p><h3>The diagram below shows excess return from -20 to +20 days </h3></p>
-    <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW4/Earnings_by_industry.png" alt="result"></p>
-    <p>Industries such as real estates and utilities which are the most leveraged sectors, turn out to be the sector with the least earnings.
-    In the US market, Financial industry totally dominates the whole market in terms of earnings. </p>
-
-    <h2> Implementation And Methdology</h2>
-    <p> <b>Detailed Implementation in R is available on my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW4/HW4.r">here</a> </b></p>
+    <h3>Lesson learnt from Homework 3</h3>
+    <p>Harry's approach is more reasonable than mine as he included a longer time horizon to study the volatility and return of the market. I should have included a longer time horizon in order to better capture the metrics from the markets.
+    </p>
   
-    <ul>
-      <li>Step 1: Download data from Compustat, Choose CRSP/Compustat Merged - Fundamentals Annual</li>
-      <li>Step 2: Choose variables Financing Activities Net Cash Flow, Investing Activities Net Cash Flow, Operating Activities Net Cash Flow,
-      Earnings Before Interest, Long-Term Debt - Total, Debt in Current Liabilities - Total, Assets - Total, Common/Ordinary Equity - Total, Ticker Symbol</li>
-      <li>Step 3: Calucate the leverage ratios by book and market value.</li>
-      <li>Step 4: Use dplyr to group the sectors and find the average leverage ratio and total earnings. </li>
-    </ul>
+    <h2> Implementation </h2>
+    <p>Implementation in R code can be found at my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW5/hw5.r">here</a></p>
 
-    </br>
     <h2> References </h2>
 
     <ul>

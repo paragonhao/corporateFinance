@@ -1,10 +1,9 @@
 library(xts)
 library(lubridate)
 library(data.table)
-library(reshape2)
+library(moments)
 
-
-stocks_raw <- read.csv("stocks.csv", sep=",", header = TRUE)
+stocks_raw <- read.csv("hw3_data.csv", sep=",", header = TRUE)
 
 stocks_raw$mktCap <- abs(stocks_raw$SHROUT * stocks_raw$PRC)
 
@@ -24,6 +23,8 @@ for(i in 1:length(perm)){
   returnTable <- cbind(returnTable, annual_geo)
 }
 
+returnTable <- read.csv("returnTable.csv", sep=",", header = TRUE)
+
 colnames(returnTable) <- perm
 
 returnData <- returnTable
@@ -34,8 +35,12 @@ returnAnnualized <- sapply(returnData, FUN = function(x){
   append(returnAnnualized, as.numeric(data))
 })
 
-return <- unlist(returnAnnualized)
-return <-return[return<1000]
-hist(return, main = "Annualized Compounded Return", breaks = 5000, xlim=c(-1,5))
+return_data <- unlist(returnAnnualized)
+quantile(return_data, probs = seq(0,1,0.005))
 
-
+return <-return_data[return_data < 2.83]
+hist(return, main = "Annualized Compounded Return", breaks = 100, xlim=c(-1,5))
+mean(return)
+var(return)
+kurtosis(return)
+skewness(return)
