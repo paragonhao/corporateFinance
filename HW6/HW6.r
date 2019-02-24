@@ -11,8 +11,8 @@ for(tic in ticlist){
   singleStock <- epsAndEarnings[epsAndEarnings$tic==tic,]
   year <- singleStock$fyear[3]
   eps <- singleStock[singleStock$fyear==year,]$epsfx
-  avgearning <- mean(diff(singleStock$ebit)/singleStock$ebit[1:2])
-  #avgearning <- mean(diff(log(singleStock)))
+  #avgearning <- mean(diff(singleStock$ebit)/singleStock$ebit[1:2])
+  avgearning <- mean(diff(log(singleStock$ebit)))
   mktCap <- singleStock[singleStock$fyear==year,]$mkvalt
   
   result <- c(tic, eps, avgearning,mktCap)
@@ -35,5 +35,5 @@ quantileDF[indx] <- lapply(quantileDF[indx], function(x) as.numeric(as.character
 p <- ggplot(quantileDF, aes(EBIT,EPS))
 p + labs(title="SP500 EPS VS EBIT", x="Change in Earnings") + geom_point(shape=21,aes(size = mktCap), fill = "blue", colour="black")
  
-
+  
 
