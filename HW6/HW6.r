@@ -1,7 +1,8 @@
 library(ggplot2)
-rawdata <- read.csv("sp500EPSANDEARNINGS.csv", header = TRUE, sep=",")
+rawdata <- read.csv("sp500.csv", header = TRUE, sep=",")
+rawdata$epsfx<- rawdata$epsfx/rawdata$prcc_f
 
-epsAndEarnings <- rawdata[,c(3,8,11,12,14)]
+epsAndEarnings <- na.omit(rawdata[,c(3,4,6,7,8)])
 epsAndEarnings$mkvalt <- log(epsAndEarnings$mkvalt)
 ticlist <- unique(epsAndEarnings$tic)
 resultSet <- c()
@@ -33,7 +34,7 @@ indx <- sapply(quantileDF, is.factor)
 quantileDF[indx] <- lapply(quantileDF[indx], function(x) as.numeric(as.character(x)))
 
 p <- ggplot(quantileDF, aes(EBIT,EPS))
-p + labs(title="SP500 EPS VS EBIT", x="Change in Earnings") + geom_point(shape=21,aes(size = mktCap), fill = "blue", colour="black")
+p + labs(title="SP500 E/P", x="Change in Earnings") + geom_point(shape=21,aes(size = mktCap), fill = "blue", colour="black")
  
   
 
