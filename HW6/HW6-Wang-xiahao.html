@@ -23,33 +23,32 @@
 
     <h2> Executive Summary </h2>
 
-    <p> The purpose of the assignment is to compare the lagged change in percent earnings and earnings per share. For this purpose, EPS(Earnings per share diluated excluding extraordinary items) and EBIT (earnings before interest and tax) from Compustat are included for data analysis. Data from inancial reporting year 2015 to 2017 are used for this assignment. 
+    <p> The purpose of the assignment is to compare the lagged change in percent earnings and E/P (earnings per share / price). For this purpose, EPS(Earnings per share diluated excluding extraordinary items), price of the stock at end of fiscal year, EBIT (earnings before interest and tax) from Compustat are included for data analysis. Data from inancial reporting year 2015 to 2017 for s&p500 are used for this assignment. 
     </p>
 
 <b>NOTE: Internet connection is required to view the full page with diagram and css template</b>
      <h2> Summary of the result</h2>
-      <p><h3>The diagram below shows excess return from -20 to +20 days</h3></p>
-      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW5/HW5-1.png" alt="result"></p>
+     <p>Following diagram show the SP500 E/P vs Change in Earnings </p>
+      <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW6/sp500EPEBIT.png?raw=true" alt="result"></p>
       <p>
-     One obvious observation that we can make is that majority of the firms in SP500 are profitable, as there are hardly a few firms whose EPS are below zero. Also, majority of the firms sits in the first quadrant of the graph, indicating steady growth in earnings while maintaining positive EPS over the years. 
+     One obvious observation that we can make is that E/P for majority of the firms in SP500 are slightly above zero, regardless of the change in earning for the company
+     Accorinding to the Internet: The earnings-price ratio is a way to help determine a security's stock valuation, that is, the fair value of a stock in a perfect market. It is also a measure of expected, but not realized, growth. It may be used in place of the price-earnings ratio if, say, there are no earnings (as one cannot divide by zero). It is also called the earnings yield or the earnings capitalization ratio.
+     In this case, one interpretation is that the firms in SP500 are well-established and financially sound, hence most of them would make positive EPS hence giving a positive on the chart. If the entire stock market is plotted on the graph, I would have imaged that the graph will be littered with dots that are below zero.
     </p> 
 
-    <h3>Fun facts about the data</h3>
-    <p> As it is commonly known that growth firms may experience negative EPS as their are putting in capitals to capture the market, most of the high growth firms does not appear to have very bad financial status as based on their EPS. This is probably because the firms in SP500 are well-established and financially sound. However, the firm with strong growth but worst EPS is FTR( Frontier Communications Corp). Their stock went from $100 to $2 till now. One way to interpret this is that the high expansion strategy strapped the firm with high debt, causing to fall from grace later on. </p>
-    
-    <p> The firm with the highest growth in earning and strong EPS is CHTR (chartered Communication). Their stock picked up from $165 in 2016 to $328 in 2017. This might be a good example of the market being quite efficient in this case. 
-    Among the high growth stocks at that time are AMAT, FB, NFLX, NVDA, if we picked those stocks which grows at a fast pace, yet maintained a healthy financial status, we might be able to receive very good returns on these investment.</p>
-    
-    <p>And it is no surpise to see firms with very negative growth make zero or negative earnings on the third quadrant of the chart</p>
-     
+    <p> A further investigation proved my guess and shows more firms falling below the zero mark.</p>
+
+    <p>Following diagram shows the Entire Market E/P vs Change in Earnings, we removed all the NAs in the calculation.</p>
+     <p><img src="https://raw.githubusercontent.com/paragonhao/corporateFinance/master/HW6/MktEP.png?raw=true" alt="result"></p>
+
+
     <h2> Implementation </h2>
-    <p>Implementation in R code can be found at my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW5/hw5.r">here</a></p>
+    <p>Implementation in R code can be found at my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW6/HW6.r">here</a></p>
 
     <h2> References </h2>
 
     <ul>
-      <li> <a href="https://wrds-web.wharton.upenn.edu/wrds/">WRDS</a>,WRDS, retrieved on 8th Feb, 2019. </li>
-      <li> <a href="https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard">Global Industry Classification Standard</a>, retrieved on 8th Feb, 2019. </li>
+      <li> <a href="https://wrds-web.wharton.upenn.edu/wrds/">WRDS</a>,WRDS, retrieved on 23rd Feb, 2019. </li>
     </ul>
       
     <p class="notice">TAs, please do not judge me too harshly.</p>
