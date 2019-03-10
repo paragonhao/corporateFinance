@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <title>hw7.html</title>
+  </head>
+
+  <meta name="KEYWORDS" content="..." />
+  <meta name="AUTHOR" content="Wang Xiahao" />
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="http://www.ivo-welch.info/teaching/hw.css" />
+  
+
+  <body>
+
+    <h1> Homework 7, by Wang xiahao, March 9th, 2019 </h1>
+
+    <h2> Executive Summary </h2>
+
+    <p> The purpose of the assignment is to do a basic Fama-Macbeth regression. We have obtained the data from CRSP (stock return) and Compustat (Financials) separately and merged them together to run the fama-macbeth regression.
+    </p>
+
+     <h2> Summary of the result</h2>
+      <table>
+        <thead> 
+          <tr> 
+            <th> Market Cap </th> 
+            <th> 1 / Price </th> 
+            <th> PE Ratio </th> 
+             <th> Accruals </th> 
+          </tr> </thead>
+        <tbody>
+          <tr> <td>-6.846470</td> <td>-0.00004313147</td><td>0.0002105484</td><td>0.0002042117</td></tr>
+        </tbody>
+      </table>
+    <p>As we have observed from the coefficient that only market coefficent </p>
+    <h2> Implementation </h2>
+    <p>Implementation in R code can be found at my github <a href="https://github.com/paragonhao/corporateFinance/blob/master/HW7/HW7.r">here</a></p>
+
+    <ul>
+      <li>Step 1: Download data from Compustat and CRSP</li>
+      <li>Step 2: Calculate annual stock return from stock data</li>
+      <li>Step 3: Calucate the factors: MarketCap, PriceInverse (1/Price), PE Ratio, Accruals (change in asset - change in liability - change in cash).</li>
+      <li>Step 4: Run cross sectional regression to obtain the betas for each stock</li>
+      <li>Step 5: Run mac-beth regression on the entire dataset to obtain the lambdas to obtain the result  </li>
+    </ul>
+
+    <h2> References </h2>
+
+    <ul>
+      <li> <a href="https://wrds-web.wharton.upenn.edu/wrds/">WRDS</a>,WRDS, retrieved on 23rd Feb, 2019. </li>
+    </ul>
+      
+    <p class="notice">TAs, please do not judge me too harshly.</p>
+
+  </body>
+
+</html>
